@@ -1,0 +1,9 @@
+scipy
+numpy
+scikit-image
+matplotlib
+opencv-python
+numba
+ipywidgets
+dill
+latex
