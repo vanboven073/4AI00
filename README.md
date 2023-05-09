@@ -15,3 +15,21 @@ Some intermediate steps will be:
 4.  Do edge detection on these noisy images.
 5.  Adjust data generating algoritm, such that it produces photorealistic images with shadowing.
 5.  Do edge detection on these images.
+
+# Theoretical Neural Network
+
+## RNN
+
+RNNs can be used to solve problems related to: Time series data, Text data and audio data. These data sets are all sequential, this is not applicable for pictures. As pictures are spatial data.
+
+## CNN
+
+A CNN captures the spatial features of an image. This is known as the arrangement and and relations of pixels. With this information, identification, location, as well as relation with other object in an image. 
+
+Looking at this description of a CNN, we can see that a CNN can be used for this case. Detirmine the surface tension of a drop.
+
+## Edge detection
+
+https://github.com/sniklaus/pytorch-hed
+
+https://medium.com/@nikatsanka/comparing-edge-detection-methods-638a2919476e#:~:text=Sobel%20Operator,inexpensive%20in%20terms%20of%20computations
