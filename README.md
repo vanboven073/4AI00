@@ -33,3 +33,7 @@ Looking at this description of a CNN, we can see that a CNN can be used for this
 https://github.com/sniklaus/pytorch-hed
 
 https://medium.com/@nikatsanka/comparing-edge-detection-methods-638a2919476e#:~:text=Sobel%20Operator,inexpensive%20in%20terms%20of%20computations
+
+## Questions in meeting
+
+To what accuracy do we want the surface tension?
