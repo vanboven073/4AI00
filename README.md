@@ -37,3 +37,4 @@ https://medium.com/@nikatsanka/comparing-edge-detection-methods-638a2919476e#:~:
 ## Questions in meeting
 
 To what accuracy do we want the surface tension?
+
