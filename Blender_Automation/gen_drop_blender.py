@@ -20,8 +20,9 @@ def Generate_Drop(rr,zz):
     ob.data = cu
 
     # Spins 360 on z-axis
-    ob.modifiers.new("Screw", 'SCREW')
-    # bpy.types.ScrewModifier(axis='Z')
+    revolve = ob.modifiers.new("Screw", 'SCREW')
+    revolve.steps = 128
+    revolve.render_steps = 128
 
 # Assigning Materials
     mat = bpy.data.materials.get("Droplet")
@@ -30,10 +31,13 @@ def Generate_Drop(rr,zz):
         mat.use_nodes = True
         tree = mat.node_tree
         nodes = tree.nodes
-        bsdf = nodes["Principled BSDF"] 
-        # bsdf.inputs["Base Color"].default_value = (167/255, 219/255, 243/255, 0.8)        
-        bsdf.inputs["Base Color"].default_value = (0.08, 0.4, 0.8, 0.5)
-        mat.diffuse_color = (0.08, 0.4, 0.8, 0.5)
+        # bsdf = nodes["Principled BSDF"] 
+        # # bsdf.inputs["Base Color"].default_value = (167/255, 219/255, 243/255, 0.8)        
+        # bsdf.inputs["Base Color"].default_value = (0.08, 0.4, 0.8, 0.5)
+        # mat.diffuse_color = (0.08, 0.4, 0.8, 0.5)
+        # bsdf = nodes["Glass BSDF"] 
+        # bsdf.inputs["Roughness"].default_value = (0.001)
+        # bsdf.inputs["IOR"].default_value = (1.50)
 
     # Assign it to object
     if ob.data.materials:

@@ -13,29 +13,19 @@ from gen_drop_blender import Remove_Drop
 from render import change_sun
 
 # Define the parameters physical parameters
-sigma=100
-volume0=15
+volume0=5
 rneedle=0.5
 
-# Compute the r -and z-coordinates
-# rr,zz = genSingleDrop(sigma,volume0,rneedle,output=0,savepath='.')
-# # print(rr,zz)
-# # Generate the drop in Blender
-# Generate_Drop(rr,zz)
+sigma = np.array([40])
+# volume = np.array([5,10])
+for i in range(0,len(sigma)):
+    # for k in range(0,len(volume))
+        rr,zz = genSingleDrop(sigma[i],volume0,rneedle,output=0,savepath='.')
+        Generate_Drop(rr,zz)
+        # Take images while changing lighting conditions
+        change_sun(sigma[i], volume0, rneedle, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Realistic_DropX')
+        # After render delete old droplet and create a new one
+        Remove_Drop()
 
-# change_sun(sigma, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Test_Images')
-
-
-
-
-# Idea is to also have array of desired values to model
-sigma2= np.array([75])
-for i in range(0,len(sigma2)):
-    rr,zz = genSingleDrop(sigma2[i],volume0,rneedle,output=0,savepath='.')
-    Generate_Drop(rr,zz)
-    # Take images while changing lighting conditions
-    change_sun(sigma2[i], volume0, rneedle, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Test_Images')
-    # After render delete old droplet and create a new one
-    # Remove_Drop()
 
 
