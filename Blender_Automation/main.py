@@ -10,6 +10,7 @@ if not dir in sys.path:
 from gen_single_drop import genSingleDrop
 from gen_drop_blender import Generate_Drop
 from gen_drop_blender import Remove_Drop
+from gen_drop_blender import Generate_Mask
 from render import change_sun
 
 # Define the parameters physical parameters
@@ -23,8 +24,10 @@ for i in range(0,len(sigma)):
         rr,zz = genSingleDrop(sigma[i],volume0,rneedle,output=0,savepath='.')
         Generate_Drop(rr,zz)
         # Take images while changing lighting conditions
-        change_sun(sigma[i], volume0, rneedle, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Realistic_DropX')
-        # After render delete old droplet and create a new one
+        change_sun(sigma[i], volume0, rneedle, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Droplet_XY')
+        Generate_Mask()
+        change_sun(sigma[i], volume0, rneedle, 'Users/20193709/OneDrive - TU Eindhoven/Master/Master Courses/Quartile 4/4AI000/Blender_Automation/Droplet_Mask_XY')
+        # # After render delete old droplet and create a new one
         Remove_Drop()
 
 

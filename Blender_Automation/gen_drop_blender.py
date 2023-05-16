@@ -25,12 +25,11 @@ def Generate_Drop(rr,zz):
     revolve.render_steps = 128
 
 # Assigning Materials
-    mat = bpy.data.materials.get("Droplet")
-    if mat is None:
-        mat = bpy.data.materials.new(name="Droplet")
-        mat.use_nodes = True
-        tree = mat.node_tree
-        nodes = tree.nodes
+    # if mat is None:
+    #     mat = bpy.data.materials.new(name="Droplet")
+    #     mat.use_nodes = True
+    #     tree = mat.node_tree
+    #     nodes = tree.nodes
         # bsdf = nodes["Principled BSDF"] 
         # # bsdf.inputs["Base Color"].default_value = (167/255, 219/255, 243/255, 0.8)        
         # bsdf.inputs["Base Color"].default_value = (0.08, 0.4, 0.8, 0.5)
@@ -40,14 +39,28 @@ def Generate_Drop(rr,zz):
         # bsdf.inputs["IOR"].default_value = (1.50)
 
     # Assign it to object
+    
+    bpy.data.objects['Needle'].hide_render = False
+    bpy.context.scene.world = bpy.data.worlds['World']
+    mat = bpy.data.materials.get("Droplet")
     if ob.data.materials:
-        # assign to 1st material slot
-        ob.data.materials[0] = mat
+        idx = ob.active_material_index
+        ob.material_slots[idx].material = mat
     else:
         # no slots
         ob.data.materials.append(mat)
 
-    
+def Generate_Mask():
+    bpy.data.objects['Needle'].hide_render = True 
+    bpy.context.scene.world = bpy.data.worlds['World_Mask']
+    ob = bpy.context.object
+    if ob.data.materials:
+        mat = bpy.data.materials.get("Droplet_Mask")
+        idx = ob.active_material_index
+        ob.material_slots[idx].material = mat
+    else:
+        # no slots
+        ob.data.materials.append(mat)
 
 def Remove_Drop():
     if bpy.context.object.mode == 'EDIT':
