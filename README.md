@@ -39,3 +39,21 @@ https://medium.com/@nikatsanka/comparing-edge-detection-methods-638a2919476e#:~:
 To what accuracy do we want the surface tension?
 
 Countour detection, localization object (mask)
+
+## Presentation 23-5-23
+
+# Introduction
+
+# Blender
+
+# Neural network
+
+In this case we are going to use two different Neural Networks. Both Networks being deployed sequentilly, where the first network is used to do the image segmentation and the second to predict the surface tension.
+
+$Image segmentation$, going from a photorealistic image to a prediction of the surface tension, requires the neural network to first detect the drop in the image. Using pre trained neural networks, like Resnet50 proved not to work perfectly (INPUT IMAGE RESULT RESNET50). Therefor was decided to train our own model, this is done by designing a FCN and training it with images that are rendered in blender. The label that is used for the image is the masked image (INPUT MASK IMAGE). As a result the FCN gives an output of the masked image, whe having a photorealistic figure as an input. (ADD EXPLENATION CHOICE FOR FCN)
+
+$Predicting surface tension$, the result of the previous FCN enables the second neural network to purely focus on the shape of the drop. Which is essential for predicting the surface tension (see equation surface tension). A CNN captures the spatial features of an image. This is known as the arrangement and and relations of pixels. With this information, identification, location, as well as relation with other object in an image. This is essential, as we are looking at the relation between the radii. Therefor a CNN is chosen to predict the value of the sureface tension.
+
+# 
+
+
